@@ -1,59 +1,55 @@
 
 public class Controller {
-	
+
 	private Database db;
 	private Student dtmodel;
 	private View view;
-	
-	public Controller(Database db, Student dtmodel, View view){
+
+	public Controller(Database db, Student dtmodel, View view) {
 		this.db = db;
 		this.dtmodel = dtmodel;
 		this.view = view;
 		saveData();
-		
+
 	}
-	
 
-public boolean isValues() {
-	
-    boolean result = false;
-    String name = view.getName();
-    String lastname = view.getLastname();
-    String email = view.getEmail();
+	public boolean isValues() {
 
-   
-    if (!name.equals("") && !lastname.equals("") && !email.equals("")) {
-        result = true;
-    } else {
-        result = false;
-    }
+		boolean result = false;
+		String name = view.getName();
+		String lastname = view.getLastname();
+		String email = view.getEmail();
 
-    return result;
-}
+		if (!name.equals("") && !lastname.equals("") && !email.equals("")) {
+			result = true;
+		} else {
+			result = false;
+		}
 
-public void saveData() {
+		return result;
+	}
 
-        if (isValues()) {
+	public void saveData() {
 
-            dtmodel = new Student();
-            dtmodel.setName(view.getName());
-            dtmodel.setLastname(view.getLastname());
-            dtmodel.setEmail(view.getEmail());
+		if (isValues()) {
 
-            // ตรวจสอบว่าบันทึกข้อมูลสำเร็จหรือไม่
-            if (db.isInsert(dtmodel)) {
-                System.out.println("Saved!!");
-                System.exit(0);
-            } else {
-                System.out.println("Cannot save!!");
-                this.view = new View();
-            }
+			dtmodel = new Student();
+			dtmodel.setName(view.getName());
+			dtmodel.setLastname(view.getLastname());
+			dtmodel.setEmail(view.getEmail());
 
-        } else {
-            System.out.println("Please fill all your form");
-            this.view = new View();
-        }
-    }
+			if (db.isInsert(dtmodel)) {
+				System.out.println("Saved!!");
+				System.exit(0);
+			} else {
+				System.out.println("Cannot save!!");
+				this.view = new View();
+			}
+
+		} else {
+			System.out.println("Please fill all your form");
+			this.view = new View();
+		}
+	}
 
 }
-

@@ -1,24 +1,24 @@
 import java.util.Scanner;
 
 public class View {
-	
-	private Scanner scan ;
+
+	private Scanner scan;
 	private String name;
 	private String lastname;
 	private String email;
-	
-	public View(){
+
+	public View() {
 		scan = new Scanner(System.in);
 		input();
 	}
-	
-	public void input(){
+
+	public void input() {
 		System.out.println("Name : ");
 		name = scan.next();
 		System.out.println("Lastname : ");
 		lastname = scan.next();
 		System.out.println("Email :");
-		email= scan.next();
+		email = scan.next();
 	}
 
 	public String getName() {

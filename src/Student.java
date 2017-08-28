@@ -1,11 +1,11 @@
 
 public class Student {
-	
+
 	private int id;
 	private String name;
 	private String lastname;
 	private String email;
-	
+
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", name=" + name + ", lastname=" + lastname + ", email=" + email + "]";
@@ -50,8 +50,8 @@ public class Student {
 		this.lastname = lastname;
 		this.email = email;
 	}
-	
-	public Student(){};
-	
+
+	public Student() {
+	};
 
 }

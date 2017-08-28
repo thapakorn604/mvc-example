@@ -6,7 +6,7 @@ public class MainApp {
 		Database db = new Database();
 		Student model = new Student();
 		View view = new View();
-		Controller controll = new Controller(db,model,view);
+		Controller controll = new Controller(db, model, view);
 	}
 
 }
